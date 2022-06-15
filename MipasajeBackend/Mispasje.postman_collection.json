@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "b80c61a5-8e36-4a44-84d1-645218d5ff23",
+		"name": "Mispasje",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutations",
+			"item": [
+				{
+					"name": "data generators",
+					"item": [
+						{
+							"name": "add locations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation addLocations {\r\n  loc1: addLocation(input: {name: \"Trinidad\"}) {_id name}\r\n  loc2: addLocation(input: {name: \"Santa Cruz de la Sierra\"}) {_id name}\r\n  loc3: addLocation(input: {name: \"Cochabamba\"}) {_id name}\r\n  loc4: addLocation(input: {name: \"La paz ciudad\"}) {_id name}\r\n  loc5: addLocation(input: {name: \"Tarija ciudad\"}) {_id name}\r\n  loc6: addLocation(input: {name: \"Cobija\"}) {_id name}\r\n  loc7: addLocation(input: {name: \"San joaquin\"}) {_id name}\r\n  loc8: addLocation(input: {name: \"Oruro ciudad\"}) {_id name}\r\n  loc9: addLocation(input: {name: \"Sucre\"}) {_id name}\r\n  loc10: addLocation(input: {name: \"Puerto Suarez\"}) {_id name}\r\n  loc11: addLocation(input: {name: \"Puerto Quijarro\"}) {_id name}\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add clients",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation addClients {\r\n    c1: addClient (input: {name: \"copacabana\", email: \"admin@copacabana.com\", password: \"copacabana\", logo: \"https://media.graphcms.com/rh1b7iCYRMDJbOBHHLkz?_ga=2.251445444.316059397.1643994794-912643931.1643897382\"}) {\r\n        _id\r\n        name\r\n        email\r\n        logo\r\n        token\r\n    }\r\n\r\n    c2: addClient (input: {name: \"flixbus\", email: \"admin@flixbus.com\", password: \"flixbus\", logo: \"https://cdn-cf.cms.flixbus.com/drupal-assets/ogimage/flixbus.png\"}) {\r\n        _id\r\n        name\r\n        email\r\n        logo\r\n        token\r\n    }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add routes",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation addRoutes {\r\n    r1: addRoute(input: {\r\n        clientId: \"6210d7c329590005a072c510\",\r\n        originId: \"6210d3113fda8650b4395adb\",\r\n        destinationId: \"6210d3113fda8650b4395ad9\"\r\n    }) {\r\n        _id\r\n        client { _id name email }\r\n        origin {name}\r\n        destination {name}\r\n    }\r\n\r\n    r2: addRoute(input: {\r\n        clientId: \"6210d7c329590005a072c510\",\r\n        originId: \"6210d3113fda8650b4395adb\",\r\n        destinationId: \"6210d3113fda8650b4395add\"\r\n    }) {\r\n        _id\r\n        client { _id name email }\r\n        origin {name}\r\n        destination {name}\r\n    }\r\n\r\n    r3: addRoute(input: {\r\n        clientId: \"6210d7c329590005a072c510\",\r\n        originId: \"6210d3113fda8650b4395adb\",\r\n        destinationId: \"6210d3113fda8650b4395adf\"\r\n    }) {\r\n        _id\r\n        client { _id name email }\r\n        origin {name}\r\n        destination {name}\r\n    }\r\n\r\n    r4: addRoute(input: {\r\n        clientId: \"6210efa6c27a3d68bf7bd0dd\",\r\n        originId: \"6210d3113fda8650b4395adb\",\r\n        destinationId: \"6210d3113fda8650b4395adf\"\r\n    }) {\r\n        _id\r\n        client { _id name email }\r\n        origin {name}\r\n        destination {name}\r\n    }\r\n\r\n    r5: addRoute(input: {\r\n        clientId: \"6210efa6c27a3d68bf7bd0dd\",\r\n        originId: \"6210d3113fda8650b4395adb\",\r\n        destinationId: \"6210d3113fda8650b4395adf\"\r\n    }) {\r\n        _id\r\n        client { _id name email }\r\n        origin {name}\r\n        destination {name}\r\n    }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add buses",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation addBuses {\r\n    b1: addBus(input: { model: \"Volvo1\", seatType: CAMA, seatsUpstairs: 0, seatsDownstairs: 35, clientId: \"6210d7c329590005a072c510\", identifier: \"V1\"}) {\r\n        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }\r\n    }\r\n\r\n    b2: addBus(input: { model: \"Volvo2\", seatType: CAMA, seatsUpstairs: 0, seatsDownstairs: 35, clientId: \"6210d7c329590005a072c510\", identifier: \"V2\"}) {\r\n        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }\r\n    }\r\n\r\n    b3: addBus(input: { model: \"Volvo3\", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: \"6210d7c329590005a072c510\", identifier: \"V3\"}) {\r\n        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }\r\n    }\r\n\r\n    b4: addBus(input: { model: \"Volvo1\", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: \"6210efa6c27a3d68bf7bd0dd\", identifier: \"F1\"}) {\r\n        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }\r\n    }\r\n\r\n    b5: addBus(input: { model: \"Volvo1\", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: \"6210efa6c27a3d68bf7bd0dd\", identifier: \"F2\"}) {\r\n        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }\r\n    }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add journeys",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation addJourneys {\r\n    j1: addJourney(input: {\r\n        clientId: \"6210d7c329590005a072c510\", busId: \"6210f1d7a4d1e9ac6bd96f85\", routeId: \"6210de17e797bfc15bdb0652\", day: \"2022-02-19\", departure: \"2022-02-19T00:00:00Z\",\r\n        arrival: \"2022-02-19T06:00:00Z\", price: 500\r\n    }) { _id day departure arrival price client { _id name } route { _id origin {name} destination {name} } }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "{{url}}",
+									"host": [
+										"{{url}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "addLocation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addLocation ($input: AddLocationInput!) {\n    addLocation (input: $input) {\n        _id\n        name\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"name\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addClient ($input: AddClientInput!) {\n    addClient (input: $input) {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"logo\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation deleteClient ($id: ObjectID!) {\n    deleteClient (id: $id) {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation updateClient ($_id: ID, $input: AddClientInput!) {\n    updateClient (_id: $_id, input: $input) {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{\n  \"_id\": 0,\n  \"input\": {\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"logo\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation loginClient ($input: LoginClientInput!) {\n    loginClient (input: $input) {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"name\": \"\",\n    \"password\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addRoute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addRoute ($input: AddRouteInput!) {\n    addRoute (input: $input) {\n        _id\n        origin {\n            _id\n            name\n        }\n        destination {\n            _id\n            name\n        }\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"originId\": \"\",\n    \"destinationId\": \"\",\n    \"clientId\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addBus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addBus ($input: AddBusInput!) {\n    addBus (input: $input) {\n        _id\n        identifier\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        model\n        seatsDownstairs\n        seatsUpstairs\n        seatType\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"identifier\": \"\",\n    \"clientId\": \"\",\n    \"model\": \"\",\n    \"seatsDownstairs\": 0,\n    \"seatsUpstairs\": 0,\n    \"seatType\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addJourney",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addJourney ($input: AddJourneyInput!) {\n    addJourney (input: $input) {\n        _id\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        route {\n            _id\n            origin {\n                _id\n                name\n            }\n            destination {\n                _id\n                name\n            }\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n        }\n        bus {\n            _id\n            identifier\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n            model\n            seatsDownstairs\n            seatsUpstairs\n            seatType\n        }\n        departure\n        arrival\n        price\n    }\n}",
+								"variables": "{\n  \"input\": {\n    \"clientId\": \"\",\n    \"busId\": \"\",\n    \"routeId\": \"\",\n    \"departure\": \"\",\n    \"arrival\": \"\",\n    \"price\": \"\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query locations {\n    locations {\n        _id\n        name\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availableDestinationsForOrigin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query availableDestinationsForOrigin ($clientId: ObjectID!, $originId: ObjectID!) {\n    availableDestinationsForOrigin (clientId: $clientId, originId: $originId) {\n        _id\n        name\n    }\n}",
+								"variables": "{\n  \"clientId\": \"\",\n  \"originId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query client ($id: ObjectID!) {\n    client (id: $id) {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query clients {\n    clients {\n        _id\n        name\n        email\n        logo\n        token\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query route ($id: ObjectID) {\n    route (id: $id) {\n        _id\n        origin {\n            _id\n            name\n        }\n        destination {\n            _id\n            name\n        }\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "routes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query routes ($clientId: ObjectID, $originId: ObjectID, $destinationId: ObjectID) {\n    routes (clientId: $clientId, originId: $originId, destinationId: $destinationId) {\n        _id\n        origin {\n            _id\n            name\n        }\n        destination {\n            _id\n            name\n        }\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n    }\n}",
+								"variables": "{\n  \"clientId\": \"\",\n  \"originId\": \"\",\n  \"destinationId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query bus ($id: ObjectID!) {\n    bus (id: $id) {\n        _id\n        identifier\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        model\n        seatsDownstairs\n        seatsUpstairs\n        seatType\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allBuses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query allBuses {\n    allBuses {\n        _id\n        identifier\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        model\n        seatsDownstairs\n        seatsUpstairs\n        seatType\n    }\n}",
+								"variables": "{}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query buses ($clientId: ObjectID!, $identifier: String) {\n    buses (clientId: $clientId, identifier: $identifier) {\n        _id\n        identifier\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        model\n        seatsDownstairs\n        seatsUpstairs\n        seatType\n    }\n}",
+								"variables": "{\n  \"clientId\": \"\",\n  \"identifier\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "isBusAvailable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query isBusAvailable ($busId: ObjectID!, $from: DateTime!, $to: DateTime!) {\n    isBusAvailable (busId: $busId, from: $from, to: $to)\n}",
+								"variables": "{\n  \"busId\": \"\",\n  \"from\": \"\",\n  \"to\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "journey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query journey ($id: ObjectID!) {\n    journey (id: $id) {\n        _id\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        route {\n            _id\n            origin {\n                _id\n                name\n            }\n            destination {\n                _id\n                name\n            }\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n        }\n        bus {\n            _id\n            identifier\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n            model\n            seatsDownstairs\n            seatsUpstairs\n            seatType\n        }\n        departure\n        arrival\n        price\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "journeysByRouteId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query journeysByRouteId ($routeId: ObjectID!) {\n    journeysByRouteId (routeId: $routeId) {\n        _id\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        route {\n            _id\n            origin {\n                _id\n                name\n            }\n            destination {\n                _id\n                name\n            }\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n        }\n        bus {\n            _id\n            identifier\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n            model\n            seatsDownstairs\n            seatsUpstairs\n            seatType\n        }\n        departure\n        arrival\n        price\n    }\n}",
+								"variables": "{\n  \"routeId\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "journeys",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query journeys ($originId: ObjectID!, $destinationId: ObjectID!, $clientId: ObjectID, $departsBefore: DateTime, $departsAfter: DateTime, $arrivesBefore: DateTime, $arrivesAfter: DateTime) {\n    journeys (originId: $originId, destinationId: $destinationId, clientId: $clientId, departsBefore: $departsBefore, departsAfter: $departsAfter, arrivesBefore: $arrivesBefore, arrivesAfter: $arrivesAfter) {\n        _id\n        client {\n            _id\n            name\n            email\n            logo\n            token\n        }\n        route {\n            _id\n            origin {\n                _id\n                name\n            }\n            destination {\n                _id\n                name\n            }\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n        }\n        bus {\n            _id\n            identifier\n            client {\n                _id\n                name\n                email\n                logo\n                token\n            }\n            model\n            seatsDownstairs\n            seatsUpstairs\n            seatType\n        }\n        departure\n        arrival\n        price\n    }\n}",
+								"variables": "{\n  \"originId\": \"\",\n  \"destinationId\": \"\",\n  \"clientId\": \"\",\n  \"departsBefore\": \"\",\n  \"departsAfter\": \"\",\n  \"arrivesBefore\": \"\",\n  \"arrivesAfter\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": "URL for the request."
+		}
+	]
+}

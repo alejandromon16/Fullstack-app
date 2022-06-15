@@ -1,0 +1,8 @@
+{
+  "restartable": "rs",
+  "ignore": ["dist", "node_modules"],
+  "verbose": "true",
+  "watch": ["src/"],
+  "exec": "babel-node src/index.js",
+  "ext": "js,json"
+}

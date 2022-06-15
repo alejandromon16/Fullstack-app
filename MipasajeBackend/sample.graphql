@@ -1,0 +1,129 @@
+mutation addLocations {
+  loc1: addLocation(input: {name: "Trinidad"}) {_id name}
+  loc2: addLocation(input: {name: "Santa Cruz de la Sierra"}) {_id name}
+  loc3: addLocation(input: {name: "Cochabamba"}) {_id name}
+  loc4: addLocation(input: {name: "La paz ciudad"}) {_id name}
+  loc5: addLocation(input: {name: "Tarija ciudad"}) {_id name}
+  loc6: addLocation(input: {name: "Cobija"}) {_id name}
+  loc7: addLocation(input: {name: "San joaquin"}) {_id name}
+  loc8: addLocation(input: {name: "Oruro ciudad"}) {_id name}
+  loc9: addLocation(input: {name: "Sucre"}) {_id name}
+  loc10: addLocation(input: {name: "Puerto Suarez"}) {_id name}
+  loc11: addLocation(input: {name: "Puerto Quijarro"}) {_id name}
+}
+
+mutation addClients {
+    c1: addClient (input: {name: "copacabana", email: "admin@copacabana.com", password: "copacabana", logo: "https://media.graphcms.com/rh1b7iCYRMDJbOBHHLkz?_ga=2.251445444.316059397.1643994794-912643931.1643897382"}) {
+        _id
+        name
+        email
+        logo
+        token
+    }
+
+    c2: addClient (input: {name: "flixbus", email: "admin@flixbus.com", password: "flixbus", logo: "https://cdn-cf.cms.flixbus.com/drupal-assets/ogimage/flixbus.png"}) {
+        _id
+        name
+        email
+        logo
+        token
+    }
+}
+
+
+mutation addRoutes {
+    r1: addRoute(input: {
+        clientId: "6210d7c329590005a072c510",
+        originId: "6210d3113fda8650b4395adb",
+        destinationId: "6210d3113fda8650b4395ad9"
+    }) {
+        _id
+        client { _id name email }
+        origin {name}
+        destination {name}
+    }
+
+    r2: addRoute(input: {
+        clientId: "6210d7c329590005a072c510",
+        originId: "6210d3113fda8650b4395adb",
+        destinationId: "6210d3113fda8650b4395add"
+    }) {
+        _id
+        client { _id name email }
+        origin {name}
+        destination {name}
+    }
+
+    r3: addRoute(input: {
+        clientId: "6210d7c329590005a072c510",
+        originId: "6210d3113fda8650b4395adb",
+        destinationId: "6210d3113fda8650b4395adf"
+    }) {
+        _id
+        client { _id name email }
+        origin {name}
+        destination {name}
+    }
+
+    r4: addRoute(input: {
+        clientId: "6210efa6c27a3d68bf7bd0dd",
+        originId: "6210d3113fda8650b4395adb",
+        destinationId: "6210d3113fda8650b4395adf"
+    }) {
+        _id
+        client { _id name email }
+        origin {name}
+        destination {name}
+    }
+
+    r5: addRoute(input: {
+        clientId: "6210efa6c27a3d68bf7bd0dd",
+        originId: "6210d3113fda8650b4395adb",
+        destinationId: "6210d3113fda8650b4395adf"
+    }) {
+        _id
+        client { _id name email }
+        origin {name}
+        destination {name}
+    }
+}
+
+
+mutation addBuses {
+    b1: addBus(input: { model: "Volvo1", seatType: CAMA, seatsUpstairs: 0, seatsDownstairs: 35, clientId: "6210d7c329590005a072c510", identifier: "V1"}) {
+        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }
+    }
+
+    b2: addBus(input: { model: "Volvo2", seatType: CAMA, seatsUpstairs: 0, seatsDownstairs: 35, clientId: "6210d7c329590005a072c510", identifier: "V2"}) {
+        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }
+    }
+
+    b3: addBus(input: { model: "Volvo3", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: "6210d7c329590005a072c510", identifier: "V3"}) {
+        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }
+    }
+
+    b4: addBus(input: { model: "Volvo1", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: "6210efa6c27a3d68bf7bd0dd", identifier: "F1"}) {
+        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }
+    }
+
+    b5: addBus(input: { model: "Volvo1", seatType: CAMA, seatsUpstairs: 15, seatsDownstairs: 20, clientId: "6210efa6c27a3d68bf7bd0dd", identifier: "F2"}) {
+        _id identifier model seatsDownstairs seatsUpstairs seatType client { _id name email }
+    }
+}
+
+query {
+  busesByRoute(origin: "Santa Cruz de la Sierra",
+  destination: "Trinidad", departsAfter: "2021-01-01T00:00:00Z") {
+    _id
+    model
+    price
+    schedule {
+      departure
+    }
+    seats {
+      identifier
+      reserved
+      occupied
+    }
+  }
+}

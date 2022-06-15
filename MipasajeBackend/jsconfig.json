@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"baseUrl": "src",
+		"paths": {
+		},
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"module": "commonjs",
+    	"target": "es6",
+		"removeComments": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true
+	},
+	"include": ["src/**/*.js"]
+}
